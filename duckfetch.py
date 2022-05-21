@@ -27,27 +27,20 @@ responsivebar = f"".join(['-' for i in range(len(usernameConcat))])
 ShellPath = subprocess.check_output(["echo $SHELL"],stdin=subprocess.PIPE, shell=True).decode("utf-8").split('\n')[0]
 ShellVersion = subprocess.check_output([f"{ShellPath} --version"],stdin=subprocess.PIPE, shell=True).decode("utf-8").split('\n')[0]
 distribution = subprocess.check_output(["cat /etc/os-release"],stdin=subprocess.PIPE, shell=True).decode("utf-8").split('"')[1]
-Resolution = subprocess.check_output(["xrandr"],stdin=subprocess.PIPE, shell=True).decode("utf-8").split('\n')[0]
 cpu = psutil.cpu_percent()
 ram = subprocess.check_output(["free -m"],stdin=subprocess.PIPE, shell=True).decode("utf-8").split('\n')[1].split()
 ram_used = int(ram[2])
 ram_total = int(ram[1])
 RAMConcat = f"{ram_used}MB/{ram_total}MB"
-gpu = subprocess.check_output(["lspci | grep VGA"],stdin=subprocess.PIPE, shell=True).decode("utf-8").split('\n')[0]
-
 
 duck = f"""
         [red][bold]{usernameConcat}[reset]
         {responsivebar}
-[yellow]      ,~~. [reset]         [while][bold] Uptime: [reset][green][bold]{UptimeConcat}[reset]
+[yellow]      ,~~. [reset]         [while][bold] Distribution: [reset][green][bold]{distribution}[reset]
 [yellow] ,   (  - )>[reset]        [while][bold] Shell: [reset][green][bold]  {ShellVersion}[reset]
-[yellow] )`~~'   ([reset]          [while][bold] Distribution: [reset][green][bold]{distribution}[reset]
-[yellow](  .__)   )[reset]         [while][bold] Resolution: [reset][green][bold]{Resolution}[reset]
-[yellow] `-.____,'[reset]          [while][bold] RAM: [reset][green][bold]{RAMConcat}[reset]
-                    [white][bold] GPU: [reset][green][bold]{gpu}[reset]
-                    [white][bold] CPU: [reset][green][bold]{cpu}%[reset]
-
-
+[yellow] )`~~'   ([reset]          [while][bold] Uptime: [reset][green][bold]{UptimeConcat}[reset]
+[yellow](  .__)   )[reset]         [while][bold] RAM: [reset][green][bold]{RAMConcat}[reset]
+[yellow] `-.____,'[reset]          [white][bold] CPU: [reset][green][bold]{cpu}%[reset]
 """                              
 print(duck)
 print("[bold red]██████[/bold red]", "[bold green]██████[/bold green]", "[bold yellow]██████[/bold yellow]", "[bold blue]██████[/bold blue]", "[bold magenta]██████[/bold magenta]", "[bold cyan]██████[/bold cyan]", "[bold white]██████[/bold white]", sep="")
