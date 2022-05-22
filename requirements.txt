@@ -1,4 +1,3 @@
 psutil
 rich
 uptime
-socket
