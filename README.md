@@ -2,6 +2,8 @@
 
 A simple neofetch made in python for duck lovers
 
+![](duckFetch.png)
+
 # Installation 
     
     
