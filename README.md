@@ -1,4 +1,4 @@
-# Duckfetch 🦆
+# Qauckfetch 🦆
 
 A simple neofetch made in python for duck lovers
 
